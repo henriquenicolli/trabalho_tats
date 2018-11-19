@@ -8,17 +8,17 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class VendorsPage extends AkauntingPage{
+public class AkautingVendorsPage extends AkauntingPage{
     
     @FindBy(xpath = "/html/body/div/div/section[1]/h1/span[1]/a")
     WebElement addVendorsButton;
     
-    public VendorsPage(WebDriver driver) {
+    public AkautingVendorsPage(WebDriver driver) {
         super(driver);
     }
     
-    public AddVendors clickFindButton() {
+    public AkautingAddVendors clickFindButton() {
         addVendorsButton.click();
-        return new AddVendors(driver);
+        return new AkautingAddVendors(driver);
     }
 }

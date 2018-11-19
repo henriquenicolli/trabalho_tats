@@ -7,19 +7,19 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class AkauntingPage extends BasePage{
+public class AkauntingPage extends AkautingBasePage{
   
     @FindBy(tagName = "h1")
     WebElement dashboard;
     
-    Menu menu;
+    AkautingMenu menu;
     
     public AkauntingPage(WebDriver driver) {
         super(driver);
-        menu = new Menu(driver);
+        menu = new AkautingMenu(driver);
     }
      
-    public Menu getMenu() {
+    public AkautingMenu getMenu() {
         return menu;
     }
     

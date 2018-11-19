@@ -12,23 +12,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AddItems;
-import PageObjects.AddVendors;
+import PageObjects.AkautingAddItems;
+import PageObjects.AkautingAddVendors;
 import PageObjects.AkauntingPage;
-import PageObjects.CategoriesPage;
-import PageObjects.HomePage;
-import PageObjects.InvoicesPage;
-import PageObjects.ItemsPage;
-import PageObjects.Login;
-import PageObjects.Menu;
-import PageObjects.ProfitLossPage;
-import PageObjects.VendorsPage;
+import PageObjects.AkautingCategoriesPage;
+import PageObjects.AkautingHomePage;
+import PageObjects.AkautingInvoicesPage;
+import PageObjects.AkautingItemsPage;
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.AkautingProfitLossPage;
+import PageObjects.AkautingTransactionPage;
+import PageObjects.AkautingVendorsPage;
 
 /**
  *
  * @author Henrique
  */
-public class SextoCaseTest {
+public class SetimoTest {
 
     private WebDriver driver = new ChromeDriver();
 
@@ -50,21 +51,16 @@ public class SextoCaseTest {
     }
 
     @Test
-    public void Lucro() {
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+    public void SelecionarDespesas() {
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        ProfitLossPage prof = homePage.getMenu().goToReports().goToProfitLoss();
-        prof.clickAno().clickSelecionarAno();
-
-        String mensagem = prof.setLucro();
-
-        assertEquals("$0.00", mensagem);
-
+        AkautingTransactionPage transaction = homePage.getMenu().goToBanking().goToTransaction();
+        transaction.clickExpense().clickFilter();
     }
 
 }

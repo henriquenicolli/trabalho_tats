@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class CostumersPage extends AkauntingPage{
+public class AkautingCostumersPage extends AkauntingPage{
     
     @FindBy(xpath = "//*[@id=\"tbl-customers\"]/tbody/tr/td[1]/a")
     WebElement bruno;
@@ -21,13 +21,13 @@ public class CostumersPage extends AkauntingPage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div/div[2]/div[1]/div[3]/div/div/span[2]")
     WebElement fatura;
     
-    public CostumersPage(WebDriver driver) {
+    public AkautingCostumersPage(WebDriver driver) {
         super(driver);
     }
     
-    public CostumersPage clickFilter() {
+    public AkautingCostumersPage clickFilter() {
         bruno.click();
-        return new CostumersPage(driver);
+        return new AkautingCostumersPage(driver);
     }
     
     public String setVerificarFatura() {

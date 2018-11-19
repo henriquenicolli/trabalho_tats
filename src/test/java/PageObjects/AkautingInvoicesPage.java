@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class InvoicesPage extends AkauntingPage{
+public class AkautingInvoicesPage extends AkauntingPage{
     
     @FindBy(xpath = "/html/body/div/div/section[1]/h1/span[1]/a")
     WebElement addInvoicesButton;
@@ -17,17 +17,17 @@ public class InvoicesPage extends AkauntingPage{
     WebElement showButton;
    
     
-    public InvoicesPage(WebDriver driver) {
+    public AkautingInvoicesPage(WebDriver driver) {
         super(driver);
     }
     
-    public AddInvoices clickFindButton() {
+    public AkautingAddInvoices clickFindButton() {
         addInvoicesButton.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
     
-    public AddInvoices clickShowButton() {
+    public AkautingAddInvoices clickShowButton() {
         showButton.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
 }

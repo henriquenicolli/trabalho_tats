@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class AddItems extends BasePage{
+public class AkautingAddItems extends AkautingBasePage{
     
     @FindBy(xpath = "//*[@id=\"name\"]")
     WebElement name;
@@ -57,74 +57,74 @@ public class AddItems extends BasePage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div/form/div[1]/div[2]/p")
     WebElement errorMessage;
     
-    public AddItems(WebDriver driver) {
+    public AkautingAddItems(WebDriver driver) {
         super(driver);
     }
     
-     public AddItems setNome(String nome) {
+     public AkautingAddItems setNome(String nome) {
         name.clear();
         name.sendKeys(nome);
         return this;
     }
      
-    public AddItems setSKU(String skup) {
+    public AkautingAddItems setSKU(String skup) {
         sku.clear();
         sku.sendKeys(skup);
         return this;
     }
     
-    public AddItems setDescricao(String descricao) {
+    public AkautingAddItems setDescricao(String descricao) {
         description.clear();
         description.sendKeys(descricao);
         return this;
     }
     
-    public AddItems setSalePrice(String salPrice) {
+    public AkautingAddItems setSalePrice(String salPrice) {
         salePrice.clear();
         salePrice.sendKeys(salPrice);
         return this;
     }
     
-    public AddItems setPurchasePrice(String purchasePricep) {
+    public AkautingAddItems setPurchasePrice(String purchasePricep) {
         purchasePrice.clear();
         purchasePrice.sendKeys(purchasePricep);
         return this;
     }
     
-    public AddItems setQuantidade(String quantidade) {
+    public AkautingAddItems setQuantidade(String quantidade) {
         quantity.clear();
         quantity.sendKeys(quantidade);
         return this;
     }
     
-    public AddItems clickSpinnerTax() {
+    public AkautingAddItems clickSpinnerTax() {
         spinnerTax.click();
-        return new AddItems(driver);
+        return new AkautingAddItems(driver);
     }
     
-    public AddItems clickTaxButton() {
+    public AkautingAddItems clickTaxButton() {
         taxButton.click();
-        return new AddItems(driver);
+        return new AkautingAddItems(driver);
     }
     
-    public AddItems clickSpinnerCategory() {
+    public AkautingAddItems clickSpinnerCategory() {
         spinnerCategory.click();
-        return new AddItems(driver);
+        return new AkautingAddItems(driver);
     }
     
-    public AddItems clickGeneral() {
+    public AkautingAddItems clickGeneral() {
         general.click();
-        return new AddItems(driver);
+        return new AkautingAddItems(driver);
     }
     
-    public AddItems clickEnabled() {
+    public AkautingAddItems clickEnabled() {
         enabled.click();
-        return new AddItems(driver);
+        return new AkautingAddItems(driver);
     }
     
-    public AddItems clickSave() {
+    public AkautingAddItems clickSave() {
         save.click();
-        return new AddItems(driver);
+        return new AkautingAddItems(driver);
     }
     
     public String setMessage() {

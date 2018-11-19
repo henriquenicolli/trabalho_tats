@@ -12,26 +12,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AddInvoices;
-import PageObjects.AddItems;
-import PageObjects.AddVendors;
+import PageObjects.AkautingAddItems;
+import PageObjects.AkautingAddVendors;
 import PageObjects.AkauntingPage;
-import PageObjects.CategoriesPage;
-import PageObjects.CostumersPage;
-import PageObjects.HomePage;
-import PageObjects.InvoicesPage;
-import PageObjects.ItemsPage;
-import PageObjects.Login;
-import PageObjects.Menu;
-import PageObjects.ProfitLossPage;
-import PageObjects.TransactionPage;
-import PageObjects.VendorsPage;
+import PageObjects.AkautingCategoriesPage;
+import PageObjects.AkautingHomePage;
+import PageObjects.AkautingInvoicesPage;
+import PageObjects.AkautingItemsPage;
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.AkautingProfitLossPage;
+import PageObjects.AkautingVendorsPage;
 
 /**
  *
  * @author Henrique
  */
-public class OitavoCaseTest {
+public class SextoTest {
 
     private WebDriver driver = new ChromeDriver();
 
@@ -53,20 +50,21 @@ public class OitavoCaseTest {
     }
 
     @Test
-    public void VerificarFatura() {
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+    public void Lucro() {
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        CostumersPage costumers = homePage.getMenu().goToIncomes().goToCustomers();
-        String mensagem = costumers.clickFilter().setVerificarFatura();
-        
-        assertEquals("$2,698.00", mensagem);
+        AkautingProfitLossPage prof = homePage.getMenu().goToReports().goToProfitLoss();
+        prof.clickAno().clickSelecionarAno();
 
-        
+        String mensagem = prof.setLucro();
+
+        assertEquals("$0.00", mensagem);
+
     }
 
 }

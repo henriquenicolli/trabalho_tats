@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class ItemsPage extends AkauntingPage{
+public class AkautingItemsPage extends AkauntingPage{
     
     @FindBy(xpath = "/html/body/div/div/section[1]/h1/span[1]/a\n")
     WebElement addItemsButton;
@@ -30,28 +30,28 @@ public class ItemsPage extends AkauntingPage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div[1]")
     WebElement mensagem;
     
-    public ItemsPage(WebDriver driver) {
+    public AkautingItemsPage(WebDriver driver) {
         super(driver);
     }
     
-    public AddItems clickFindButton() {
+    public AkautingAddItems clickFindButton() {
         addItemsButton.click();
-        return new AddItems(driver);
+        return new AkautingAddItems(driver);
     }
     
-    public ItemsPage clickButton() {
+    public AkautingItemsPage clickButton() {
         clickButtom.click();
-        return new ItemsPage(driver);
+        return new AkautingItemsPage(driver);
     }
     
-    public ItemsPage clickDeleteButton() {
+    public AkautingItemsPage clickDeleteButton() {
         deleteItem.click();
-        return new ItemsPage(driver);
+        return new AkautingItemsPage(driver);
     }
     
-    public ItemsPage clickConfirmarExclusao() {
+    public AkautingItemsPage clickConfirmarExclusao() {
         confirm.click();
-        return new ItemsPage(driver);
+        return new AkautingItemsPage(driver);
     }
     
     public String setMensagemAviso() {

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
  * @author Henrique
  */
 
-public class Login extends BasePage{
+public class AkautingLogin extends AkautingBasePage{
 
     @FindBy(name = "email")
     WebElement loginEmail;
@@ -20,23 +20,23 @@ public class Login extends BasePage{
     @FindBy(xpath = "/html/body/div/div[2]/form/div[3]/div[2]/button")
     WebElement loginButton;
 
-    public Login(WebDriver driver) {
+    public AkautingLogin(WebDriver driver) {
         super(driver);
     }
     
-     public Login setEmail(String email) {
+     public AkautingLogin setEmail(String email) {
         loginEmail.clear();
         loginEmail.sendKeys(email);
         return this;
     }
      
-     public Login setSenha(String senha) {
+     public AkautingLogin setSenha(String senha) {
         loginSenha.clear();
         loginSenha.sendKeys(senha);
         return this;
     }
     
-    public Login Logar() {
+    public AkautingLogin Logar() {
         loginButton.click();
         return this;
    }

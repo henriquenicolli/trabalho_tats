@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  *
  * @author Henrique
  */
-public class Menu extends BasePage{
+public class AkautingMenu extends AkautingBasePage{
     
     
     @FindBy(xpath = "/html/body/div[1]/aside/div/section/ul[2]/li[2]/a")
@@ -58,83 +58,83 @@ public class Menu extends BasePage{
     @FindBy(xpath = "/html/body/div/header/nav/div/ul/li[5]/ul/li[3]/div[1]/a")
     WebElement profileButton;
     
-    public Menu(WebDriver driver) {
+    public AkautingMenu(WebDriver driver) {
         super(driver);
     }
     
-    public Menu goToIncomes() {
+    public AkautingMenu goToIncomes() {
         clickMenuOption(incomes);
-        return new Menu(driver);
+        return new AkautingMenu(driver);
     }
     
-     public ItemsPage goToItems() {
+     public AkautingItemsPage goToItems() {
         clickMenuOption(items);
-        return new ItemsPage(driver);
+        return new AkautingItemsPage(driver);
     }
      
-    public InvoicesPage goToInvoices() {
+    public AkautingInvoicesPage goToInvoices() {
         clickMenuOption(invoices);
-        return new InvoicesPage(driver);
+        return new AkautingInvoicesPage(driver);
     }
     
-    public VendorsPage goToVendors() {
+    public AkautingVendorsPage goToVendors() {
         clickMenuOption(vendors);
-        return new VendorsPage(driver);
+        return new AkautingVendorsPage(driver);
     }
     
-    public Menu goToBanking() {
+    public AkautingMenu goToBanking() {
         clickMenuOption(banking);
-        return new Menu(driver);
+        return new AkautingMenu(driver);
     }
     
-    public TransactionPage goToTransaction() {
+    public AkautingTransactionPage goToTransaction() {
         clickMenuOption(transaction);
-        return new TransactionPage(driver);
+        return new AkautingTransactionPage(driver);
     }
     
-    public Menu goToExpenses() {
+    public AkautingMenu goToExpenses() {
         clickMenuOption(expenses);
-        return new Menu(driver);
+        return new AkautingMenu(driver);
     }
     
-    public CostumersPage goToCustomers() {
+    public AkautingCostumersPage goToCustomers() {
         clickMenuOption(customers);
-        return new CostumersPage(driver);
+        return new AkautingCostumersPage(driver);
     }
     
-    public Menu goToReports() {
+    public AkautingMenu goToReports() {
         clickMenuOption(reports);
-        return new Menu(driver);
+        return new AkautingMenu(driver);
     }
     
-    public ProfitLossPage goToProfitLoss() {
+    public AkautingProfitLossPage goToProfitLoss() {
         clickMenuOption(profitLoss);
-        return new ProfitLossPage(driver);
+        return new AkautingProfitLossPage(driver);
     }
     
-    public Menu goToSettings() {
+    public AkautingMenu goToSettings() {
         clickMenuOption(settings);
-        return new Menu(driver);
+        return new AkautingMenu(driver);
     }  
 
-    public CategoriesPage goToCategories() {
+    public AkautingCategoriesPage goToCategories() {
         clickMenuOption(categories);
-        return new CategoriesPage(driver);
+        return new AkautingCategoriesPage(driver);
     }  
     
-    public Menu goToProfile() {
+    public AkautingMenu goToProfile() {
         clickMenuOption(profile);
-        return new Menu(driver);
+        return new AkautingMenu(driver);
     }  
     
-    public ProfilePage goToProfileButtom() {
+    public AkautingProfilePage goToProfileButtom() {
         clickMenuOption(profileButton);
-        return new ProfilePage(driver);
+        return new AkautingProfilePage(driver);
     }  
     
-    public HomePage goToHome() {
+    public AkautingHomePage goToHome() {
         clickMenuOption(akuaunting);
-        return new HomePage(driver);
+        return new AkautingHomePage(driver);
     }    
     
     private void clickMenuOption(WebElement menuOption) {

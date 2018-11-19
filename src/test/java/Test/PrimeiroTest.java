@@ -12,18 +12,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AddVendors;
+import PageObjects.AkautingAddVendors;
 import PageObjects.AkauntingPage;
-import PageObjects.HomePage;
-import PageObjects.Login;
-import PageObjects.Menu;
-import PageObjects.VendorsPage;
+import PageObjects.AkautingHomePage;
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.AkautingVendorsPage;
 
 /**
  *
  * @author Henrique
  */
-public class PrimeiroCaseTest {
+public class PrimeiroTest {
 
     private WebDriver driver = new ChromeDriver();
 
@@ -46,23 +46,23 @@ public class PrimeiroCaseTest {
 
     @Test
     public void CadastroComSucesso() {
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        VendorsPage vendors = homePage.getMenu().goToExpenses().goToVendors();
+        AkautingVendorsPage vendors = homePage.getMenu().goToExpenses().goToVendors();
 
-        AddVendors addVendors = vendors.clickFindButton();
-        addVendors.setNome("Bruno").
-                setEmail("bruno_daguano@hotmail.com").
+        AkautingAddVendors addVendors = vendors.clickFindButton();
+        addVendors.setNome("Teste").
+                setEmail("teste@teste.com").
                 setTax_Number("1").
                 clickCurrenctButton().
                 clickUsDollarButton().
-                setPhone("1234567890").
-                setWebSite("www.daguano.com").
+                setPhone("66666666").
+                setWebSite("www.teste.com").
                 setAddress("").
                 clickEnabledButton().
                 clickSaveButton();
@@ -75,23 +75,23 @@ public class PrimeiroCaseTest {
     @Test
     public void EmailCadastrado() {
 
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        VendorsPage vendors = homePage.getMenu().goToExpenses().goToVendors();
+        AkautingVendorsPage vendors = homePage.getMenu().goToExpenses().goToVendors();
 
-        AddVendors addVendors = vendors.clickFindButton();
-        addVendors.setNome("Bruno").
-                setEmail("bruno_daguano%hotmail.com").
+        AkautingAddVendors addVendors = vendors.clickFindButton();
+        addVendors.setNome("Teste").
+                setEmail("teste.teste.com").
                 setTax_Number("2").
                 clickCurrenctButton().
                 clickUsDollarButton().
-                setPhone("1234567890").
-                setWebSite("www.daguano.com").
+                setPhone("666666666").
+                setWebSite("www.teste.com").
                 setAddress("").
                 clickEnabledButton().
                 clickSaveButton();

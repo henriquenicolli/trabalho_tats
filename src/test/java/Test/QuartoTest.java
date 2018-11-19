@@ -12,22 +12,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AddItems;
-import PageObjects.AddVendors;
+import PageObjects.AkautingAddInvoices;
+import PageObjects.AkautingAddItems;
+import PageObjects.AkautingAddVendors;
 import PageObjects.AkauntingPage;
-import PageObjects.CategoriesPage;
-import PageObjects.HomePage;
-import PageObjects.InvoicesPage;
-import PageObjects.ItemsPage;
-import PageObjects.Login;
-import PageObjects.Menu;
-import PageObjects.VendorsPage;
+import PageObjects.AkautingHomePage;
+import PageObjects.AkautingInvoicesPage;
+import PageObjects.AkautingItemsPage;
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.AkautingVendorsPage;
 
 /**
  *
  * @author Henrique
  */
-public class QuintoCaseTest {
+public class QuartoTest {
 
     private WebDriver driver = new ChromeDriver();
 
@@ -49,40 +49,37 @@ public class QuintoCaseTest {
     }
 
     @Test
-    public void AlterarCor() {
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+    public void VerificarFatura() {
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        CategoriesPage categories = homePage.getMenu().goToSettings().goToCategories();
-        
-        categories.clickGeneral().setColour("#0b0c0d").clickSave();
-        
-        String mensagem = categories.setMessage();
-        
-        assertEquals("Category updated!", mensagem);
+        AkautingInvoicesPage invoice = homePage.getMenu().goToIncomes().goToInvoices();
+        AkautingAddInvoices add = invoice.clickShowButton();
+        String mensagem = add.setVerificarSku();
+
+        assertEquals("SKU: 1", mensagem);
 
     }
 
-    @Test
-    public void CorInexistente() {
+    //@Test
+    public void ErroNoSKU() {
         
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        CategoriesPage categories = homePage.getMenu().goToSettings().goToCategories();
-        
-        categories.clickGeneral().setColour("#/*/*/*/*/*/").clickSave();
-        
-        String mensagem = categories.setMessage();
-        
-        assertEquals("Category updated!", mensagem);
+        AkautingInvoicesPage invoice = homePage.getMenu().goToIncomes().goToInvoices();
+        AkautingAddInvoices add = invoice.clickShowButton();
+        String mensagem = add.setVerificarSku();
+
+        assertEquals("SKU: 10", mensagem);
     }
+
 }

@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class TransactionPage extends AkauntingPage{
+public class AkautingTransactionPage extends AkauntingPage{
     
     @FindBy(xpath = "/html/body/div/div/section[2]/div/div[1]/form/div[1]/select[2]/option[2]")
     WebElement expense;
@@ -21,17 +21,17 @@ public class TransactionPage extends AkauntingPage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div/div[1]/form/div[1]/button")
     WebElement filter;
     
-    public TransactionPage(WebDriver driver) {
+    public AkautingTransactionPage(WebDriver driver) {
         super(driver);
     }
     
-    public TransactionPage clickExpense() {
+    public AkautingTransactionPage clickExpense() {
         expense.click();
-        return new TransactionPage(driver);
+        return new AkautingTransactionPage(driver);
     }
     
-    public TransactionPage clickFilter() {
+    public AkautingTransactionPage clickFilter() {
         filter.click();
-        return new TransactionPage(driver);
+        return new AkautingTransactionPage(driver);
     }
 }

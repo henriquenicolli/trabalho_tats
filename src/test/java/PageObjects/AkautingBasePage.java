@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
  *
  * @author Henrique
  */
-public class BasePage {
+public class AkautingBasePage {
     protected WebDriver driver;
     
-    public BasePage(WebDriver driver) {
+    public AkautingBasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }    

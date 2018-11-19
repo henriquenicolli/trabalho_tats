@@ -12,20 +12,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AddItems;
-import PageObjects.AddVendors;
+import PageObjects.AkautingAddItems;
+import PageObjects.AkautingAddVendors;
 import PageObjects.AkauntingPage;
-import PageObjects.HomePage;
-import PageObjects.ItemsPage;
-import PageObjects.Login;
-import PageObjects.Menu;
-import PageObjects.VendorsPage;
+import PageObjects.AkautingHomePage;
+import PageObjects.AkautingItemsPage;
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.AkautingVendorsPage;
 
 /**
  *
  * @author Henrique
  */
-public class SegundoCaseTest {
+public class SegundoTest {
 
     private WebDriver driver = new ChromeDriver();
 
@@ -48,24 +48,23 @@ public class SegundoCaseTest {
 
     @Test
     public void ItemCadastradoComSucesso() {
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        ItemsPage items = homePage.getMenu().goToItems();
+        AkautingItemsPage items = homePage.getMenu().goToItems();
 
-        AddItems addItems = items.clickFindButton();
+        AkautingAddItems addItems = items.clickFindButton();
 
-        addItems.setNome("Moto G5s Plus").
+        addItems.setNome("Teste").
                 setSKU("5").
-                setDescricao("Smartphone\n Motorola Moto G5s Plus 32GB - Platinum Dual Chip\n"
-                        + "4G Câm. Duo 13MP + 13MP").
-                setSalePrice("1349").
-                setPurchasePrice("1200").
-                setQuantidade("50").
+                setDescricao("Descricao de teste").
+                setSalePrice("200").
+                setPurchasePrice("400").
+                setQuantidade("10").
                 clickSpinnerTax().
                 clickTaxButton().
                 clickSpinnerCategory().
@@ -82,24 +81,23 @@ public class SegundoCaseTest {
     @Test
     public void ErroNoCadastro() {
 
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        ItemsPage items = homePage.getMenu().goToItems();
+        AkautingItemsPage items = homePage.getMenu().goToItems();
 
-        AddItems addItems = items.clickFindButton();
+        AkautingAddItems addItems = items.clickFindButton();
 
-        addItems.setNome("Moto G5s Plus").
+        addItems.setNome("Teste").
                 setSKU("1").
-                setDescricao("Smartphone\n Motorola Moto G5s Plus 32GB - Platinum Dual Chip\n"
-                        + "4G Câm. Duo 13MP + 13MP").
-                setSalePrice("1349").
-                setPurchasePrice("1200").
-                setQuantidade("50").
+                setDescricao("Descricao de teste").
+                setSalePrice("200").
+                setPurchasePrice("400").
+                setQuantidade("10").
                 clickSpinnerTax().
                 clickTaxButton().
                 clickSpinnerCategory().

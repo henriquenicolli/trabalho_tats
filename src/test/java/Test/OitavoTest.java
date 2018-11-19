@@ -12,24 +12,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AddItems;
-import PageObjects.AddVendors;
+import PageObjects.AkautingAddInvoices;
+import PageObjects.AkautingAddItems;
+import PageObjects.AkautingAddVendors;
 import PageObjects.AkauntingPage;
-import PageObjects.CategoriesPage;
-import PageObjects.HomePage;
-import PageObjects.InvoicesPage;
-import PageObjects.ItemsPage;
-import PageObjects.Login;
-import PageObjects.Menu;
-import PageObjects.ProfitLossPage;
-import PageObjects.TransactionPage;
-import PageObjects.VendorsPage;
+import PageObjects.AkautingCategoriesPage;
+import PageObjects.AkautingCostumersPage;
+import PageObjects.AkautingHomePage;
+import PageObjects.AkautingInvoicesPage;
+import PageObjects.AkautingItemsPage;
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.AkautingProfitLossPage;
+import PageObjects.AkautingTransactionPage;
+import PageObjects.AkautingVendorsPage;
 
 /**
  *
  * @author Henrique
  */
-public class SetimoCaseTest {
+public class OitavoTest {
 
     private WebDriver driver = new ChromeDriver();
 
@@ -51,16 +53,20 @@ public class SetimoCaseTest {
     }
 
     @Test
-    public void SelecionarDespesas() {
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+    public void VerificarFatura() {
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        TransactionPage transaction = homePage.getMenu().goToBanking().goToTransaction();
-        transaction.clickExpense().clickFilter();
+        AkautingCostumersPage costumers = homePage.getMenu().goToIncomes().goToCustomers();
+        String mensagem = costumers.clickFilter().setVerificarFatura();
+        
+        assertEquals("$2,698.00", mensagem);
+
+        
     }
 
 }

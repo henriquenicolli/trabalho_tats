@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class AddInvoices extends BasePage{
+public class AkautingAddInvoices extends AkautingBasePage{
     
     @FindBy(xpath = "//*[@id=\"button-customer\"]")
     WebElement addNewCustomer;
@@ -73,110 +73,110 @@ public class AddInvoices extends BasePage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div[2]/section/div[4]/div/table/tbody/tr[2]/td[4]")
     WebElement valor;
     
-    public AddInvoices(WebDriver driver) {
+    public AkautingAddInvoices(WebDriver driver) {
         super(driver);
     }
     
-    public AddInvoices clickNewCustomer() {
+    public AkautingAddInvoices clickNewCustomer() {
         addNewCustomer.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
     
-    public AddInvoices setNome(String nome) {
+    public AkautingAddInvoices setNome(String nome) {
         name.clear();
         name.sendKeys(nome);
         return this;
     }
     
-    public AddInvoices setEmail(String emailp) {
+    public AkautingAddInvoices setEmail(String emailp) {
         email.clear();
         email.sendKeys(emailp);
         return this;
     }
     
-    public AddInvoices setTaxNumber(String tax) {
+    public AkautingAddInvoices setTaxNumber(String tax) {
         taxNumber.clear();
         taxNumber.sendKeys(tax);
         return this;
     }
     
-    public AddInvoices setAddress(String endereco) {
+    public AkautingAddInvoices setAddress(String endereco) {
         address.clear();
         address.sendKeys(endereco);
         return this;
     }
     
-    public AddInvoices clickSaveCustomr() {
+    public AkautingAddInvoices clickSaveCustomr() {
         saveCustomer.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
     
-    public AddInvoices clickDayInvoice(String data) {
+    public AkautingAddInvoices clickDayInvoice(String data) {
         selectDayInvoice.clear();
         selectDayInvoice.sendKeys(data);
         return this;
     }
     
-     public AddInvoices clickDayDue(String data) {
+     public AkautingAddInvoices clickDayDue(String data) {
         selectDayDue.clear();
         selectDayDue.sendKeys(data);
         return this;
      }
     
     
-    public AddInvoices setOrderNumber(String number) {
+    public AkautingAddInvoices setOrderNumber(String number) {
         orderNumber.clear();
         orderNumber.sendKeys(number);
         return this;
     }
     
-    public AddInvoices setItemsName(String nome) {
+    public AkautingAddInvoices setItemsName(String nome) {
         itemsName.clear();
         itemsName.sendKeys(nome);
         return this;
     }
  
     
-    public AddInvoices setQuantity(String quantidade) {
+    public AkautingAddInvoices setQuantity(String quantidade) {
         quantity.clear();
         quantity.sendKeys(quantidade);
         return this;
     }
     
-    public AddInvoices setPrice(String preco) {
+    public AkautingAddInvoices setPrice(String preco) {
         prices.sendKeys(preco);
         return this;
     }
     
-     public AddInvoices clickSppinerTax() {
+     public AkautingAddInvoices clickSppinerTax() {
         sppinerTax.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
      
-    public AddInvoices clickTax() {
+    public AkautingAddInvoices clickTax() {
         tax.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
     
-    public AddInvoices setNotes(String notas) {
+    public AkautingAddInvoices setNotes(String notas) {
         notes.clear();
         notes.sendKeys(notas);
         return this;
     }
     
-    public AddInvoices clickSppinerCategory() {
+    public AkautingAddInvoices clickSppinerCategory() {
         sppinerCategory.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
     
-    public AddInvoices clickDeposit() {
+    public AkautingAddInvoices clickDeposit() {
         deposit.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
     
-    public AddInvoices clickSave() {
+    public AkautingAddInvoices clickSave() {
         save.click();
-        return new AddInvoices(driver);
+        return new AkautingAddInvoices(driver);
     }
     
     public String setProduto() {

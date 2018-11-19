@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class CategoriesPage extends AkauntingPage{
+public class AkautingCategoriesPage extends AkauntingPage{
     
     @FindBy(xpath = "//*[@id=\"tbl-categories\"]/tbody/tr[2]/td[1]/a")
     WebElement general;
@@ -27,24 +27,24 @@ public class CategoriesPage extends AkauntingPage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div[1]")
     WebElement message;
             
-    public CategoriesPage(WebDriver driver) {
+    public AkautingCategoriesPage(WebDriver driver) {
         super(driver);
     }
     
-    public CategoriesPage clickGeneral() {
+    public AkautingCategoriesPage clickGeneral() {
         general.click();
-        return new CategoriesPage(driver);
+        return new AkautingCategoriesPage(driver);
     }
     
-    public CategoriesPage setColour(String cor) {
+    public AkautingCategoriesPage setColour(String cor) {
         colour.clear();
         colour.sendKeys(cor);
         return this;
     }
     
-    public CategoriesPage clickSave() {
+    public AkautingCategoriesPage clickSave() {
         save.click();
-        return new CategoriesPage(driver);
+        return new AkautingCategoriesPage(driver);
     }
     
      public String setMessage() {

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class AddVendors extends BasePage{
+public class AkautingAddVendors extends AkautingBasePage{
     
     @FindBy(xpath = "//*[@id=\"name\"]")
     WebElement nome;
@@ -46,64 +46,64 @@ public class AddVendors extends BasePage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div/form/div[1]/div[2]/p")
     WebElement errorMessage;
     
-    public AddVendors(WebDriver driver) {
+    public AkautingAddVendors(WebDriver driver) {
         super(driver);
     }
     
-    public AddVendors setNome(String name) {
+    public AkautingAddVendors setNome(String name) {
         nome.clear();
         nome.sendKeys(name);
         return this;
     }
     
-    public AddVendors setEmail(String emailp) {
+    public AkautingAddVendors setEmail(String emailp) {
         email.clear();
         email.sendKeys(emailp);
         return this;
     }
     
-    public AddVendors setTax_Number(String tax) {
+    public AkautingAddVendors setTax_Number(String tax) {
         tax_number.clear();
         tax_number.sendKeys(tax);
         return this;
     }
     
-    public AddVendors clickCurrenctButton() {
+    public AkautingAddVendors clickCurrenctButton() {
         currency.click();
-        return new AddVendors(driver);
+        return new AkautingAddVendors(driver);
     }
     
-    public AddVendors clickUsDollarButton() {
+    public AkautingAddVendors clickUsDollarButton() {
         usDollar.click();
-        return new AddVendors(driver);
+        return new AkautingAddVendors(driver);
     }
     
-    public AddVendors setWebSite(String site) {
+    public AkautingAddVendors setWebSite(String site) {
         website.clear();
         website.sendKeys(site);
         return this;
     }
     
-    public AddVendors setPhone(String telefone) {
+    public AkautingAddVendors setPhone(String telefone) {
         phone.clear();
         phone.sendKeys(telefone);
         return this;
     }
     
-    public AddVendors setAddress(String addressp) {
+    public AkautingAddVendors setAddress(String addressp) {
         address.clear();
         address.sendKeys(addressp);
         return this;
     }
     
-    public AddVendors clickEnabledButton() {
+    public AkautingAddVendors clickEnabledButton() {
         enabled.click();
-        return new AddVendors(driver);
+        return new AkautingAddVendors(driver);
     }
     
-    public AddVendors clickSaveButton() {
+    public AkautingAddVendors clickSaveButton() {
         save.click();
-        return new AddVendors(driver);
+        return new AkautingAddVendors(driver);
     }
     
     public String setMessage() {

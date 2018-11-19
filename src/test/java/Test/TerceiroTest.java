@@ -12,22 +12,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AddInvoices;
-import PageObjects.AddItems;
-import PageObjects.AddVendors;
+import PageObjects.AkautingAddInvoices;
+import PageObjects.AkautingAddItems;
+import PageObjects.AkautingAddVendors;
 import PageObjects.AkauntingPage;
-import PageObjects.HomePage;
-import PageObjects.InvoicesPage;
-import PageObjects.ItemsPage;
-import PageObjects.Login;
-import PageObjects.Menu;
-import PageObjects.VendorsPage;
+import PageObjects.AkautingHomePage;
+import PageObjects.AkautingInvoicesPage;
+import PageObjects.AkautingItemsPage;
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.AkautingVendorsPage;
 
 /**
  *
  * @author Henrique
  */
-public class TerceiroCaseTest {
+public class TerceiroTest {
 
     private WebDriver driver = new ChromeDriver();
 
@@ -48,25 +48,25 @@ public class TerceiroCaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    // Este caso de Teste não Funciona! Ele trava ao preencher o campo "Prices"
+    
     //@Test 
     public void ItemCadastradoComSucesso() {
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        InvoicesPage invoices = homePage.getMenu().goToIncomes().goToInvoices();
+        AkautingInvoicesPage invoices = homePage.getMenu().goToIncomes().goToInvoices();
 
-        AddInvoices addInvoices = invoices.clickFindButton();
+        AkautingAddInvoices addInvoices = invoices.clickFindButton();
 
         try {
             //Caso não tenha nenhum Vendedor Cadastrado
             addInvoices.clickNewCustomer().
-                    setNome("Bruno").
-                    setEmail("bruno_daguano@hotmail.com").
+                    setNome("Teste").
+                    setEmail("teste@teste.com").
                     setTaxNumber("1").
                     setAddress("").
                     clickSaveCustomr();
@@ -74,14 +74,14 @@ public class TerceiroCaseTest {
 
             //Cadastro da Fatura
             addInvoices.
-                    clickDayInvoice("2018-10-20").
-                    clickDayDue("2018-10-30").
+                    clickDayInvoice("2018-10-10").
+                    clickDayDue("2018-10-20").
                     setOrderNumber("1");
             Thread.sleep(3000);
             
-            addInvoices.setItemsName("Moto G5s Plus (1)").
+            addInvoices.setItemsName("Teste").
                     setQuantity("2").
-                    setPrice("1349").
+                    setPrice("800").
                     setNotes("").
                     clickSppinerCategory().
                     clickDeposit().
@@ -94,32 +94,31 @@ public class TerceiroCaseTest {
         String produto = addInvoices.setProduto();
         String valor = addInvoices.setValor();
         
-        assertEquals("Moto G5s Plus", produto);
-        assertEquals("$1,349.00", valor);
+        assertEquals("Teste", produto);
+        assertEquals("$400.00", valor);
         
     }
 
     @Test
     public void ErroNoCadastro() {
 
-        HomePage homePage = new HomePage(driver);
-        Login login = new Login(driver);
+        AkautingHomePage homePage = new AkautingHomePage(driver);
+        AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
 
-        ItemsPage items = homePage.getMenu().goToItems();
+        AkautingItemsPage items = homePage.getMenu().goToItems();
 
-        AddItems addItems = items.clickFindButton();
+        AkautingAddItems addItems = items.clickFindButton();
 
-        addItems.setNome("Moto G5s Plus").
+        addItems.setNome("Teste").
                 setSKU("1").
-                setDescricao("Smartphone\n Motorola Moto G5s Plus 32GB - Platinum Dual Chip\n"
-                        + "4G Câm. Duo 13MP + 13MP").
-                setSalePrice("1349").
-                setPurchasePrice("1200").
-                setQuantidade("50").
+                setDescricao("Descricao de teste").
+                setSalePrice("200").
+                setPurchasePrice("400").
+                setQuantidade("10").
                 clickSpinnerTax().
                 clickTaxButton().
                 clickSpinnerCategory().

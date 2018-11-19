@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class ProfilePage extends AkauntingPage{
+public class AkautingProfilePage extends AkauntingPage{
     
     @FindBy(id = "name")
     WebElement name;
@@ -39,46 +39,46 @@ public class ProfilePage extends AkauntingPage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div[1]")
     WebElement mensagem;
     
-    public ProfilePage(WebDriver driver) {
+    public AkautingProfilePage(WebDriver driver) {
         super(driver);
     }
     
-    public ProfilePage setNome(String nome) {
+    public AkautingProfilePage setNome(String nome) {
         name.clear();
         name.sendKeys(nome);
         return this;
     }
     
-    public ProfilePage setSenha(String senha) {
+    public AkautingProfilePage setSenha(String senha) {
         password.clear();
         password.sendKeys(senha);
         return this;
     }
     
-    public ProfilePage setConfirmarSenha(String conf_senha) {
+    public AkautingProfilePage setConfirmarSenha(String conf_senha) {
         password_confirmation.clear();
         password_confirmation.sendKeys(conf_senha);
         return this;
     }
     
-    public ProfilePage clickVerIdioma() {
+    public AkautingProfilePage clickVerIdioma() {
         verIdiomas.click();
-        return new ProfilePage(driver);
+        return new AkautingProfilePage(driver);
     }
     
-    public ProfilePage clickIdioma() {
+    public AkautingProfilePage clickIdioma() {
         idioma.click();
-        return new ProfilePage(driver);
+        return new AkautingProfilePage(driver);
     }
     
-    public ProfilePage clickIdioma2() {
+    public AkautingProfilePage clickIdioma2() {
         idioma2.click();
-        return new ProfilePage(driver);
+        return new AkautingProfilePage(driver);
     }
    
-    public ProfilePage clickSave() {
+    public AkautingProfilePage clickSave() {
         save.click();
-        return new ProfilePage(driver);
+        return new AkautingProfilePage(driver);
     }
     
     public String setMensagem() {

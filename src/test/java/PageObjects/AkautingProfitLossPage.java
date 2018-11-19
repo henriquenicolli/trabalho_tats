@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author Henrique
  */
-public class ProfitLossPage extends AkauntingPage{
+public class AkautingProfitLossPage extends AkauntingPage{
     
     @FindBy(xpath = "/html/body/div/div/section[2]/div/div[1]/form/div/select")
     WebElement ano;
@@ -24,18 +24,18 @@ public class ProfitLossPage extends AkauntingPage{
     @FindBy(xpath = "/html/body/div/div/section[2]/div/div[2]/div/table[4]/tbody/tr/th[6]/span")
     WebElement netProfit;
     
-    public ProfitLossPage(WebDriver driver) {
+    public AkautingProfitLossPage(WebDriver driver) {
         super(driver);
     }
     
-    public ProfitLossPage clickAno() {
+    public AkautingProfitLossPage clickAno() {
         ano.click();
-        return new ProfitLossPage(driver);
+        return new AkautingProfitLossPage(driver);
     }
     
-    public ProfitLossPage clickSelecionarAno() {
+    public AkautingProfitLossPage clickSelecionarAno() {
         selectAno.click();
-        return new ProfitLossPage(driver);
+        return new AkautingProfitLossPage(driver);
     }
     
     public String setLucro() {
