@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 /**
  *
- * @author Usuario
+ * @author Henrique
  */
 public class AddInvoices extends BasePage{
     

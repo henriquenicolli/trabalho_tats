@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 /**
  *
- * @author Usuario
+ * @author Henrique
  */
 public class BasePage {
     protected WebDriver driver;

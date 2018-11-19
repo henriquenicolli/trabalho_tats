@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
- * @author Usuario
+ * @author Henrique
  */
 public class Menu extends BasePage{
     

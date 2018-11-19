@@ -25,7 +25,7 @@ import PageObjects.VendorsPage;
 
 /**
  *
- * @author Usuario
+ * @author Henrique
  */
 public class QuartoCaseTest {
 

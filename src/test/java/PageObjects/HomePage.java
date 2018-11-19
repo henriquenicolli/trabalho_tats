@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 /**
  *
- * @author Usuario
+ * @author Henrique
  */
 public class HomePage extends AkauntingPage{
      public HomePage(WebDriver driver) {
