@@ -32,7 +32,7 @@ public class AkautingAddItems extends AkautingBasePage{
     
     @FindBy(xpath = "//*[@id=\"quantity\"]")
     WebElement quantity;
-    
+   
     @FindBy(xpath = "/html/body/div/div/section[2]/div/form/div[1]/div[7]/div/span/span[1]/span/span[2]")
     WebElement spinnerTax;
     

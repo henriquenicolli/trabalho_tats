@@ -18,6 +18,7 @@ import PageObjects.AkautingHomePage;
 import PageObjects.AkautingLogin;
 import PageObjects.AkautingMenu;
 import PageObjects.AkautingVendorsPage;
+import org.junit.Ignore;
 
 /**
  *
@@ -43,62 +44,76 @@ public class PrimeiroTest {
         chromeOptions.addArguments("start-maximized");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-
+    
     @Test
-    public void CadastroComSucesso() {
+    public void Login(){
         AkautingHomePage homePage = new AkautingHomePage(driver);
         AkautingLogin login = new AkautingLogin(driver);
 
         login.setEmail("teste@teste.com").
                 setSenha("utfpr").
                 Logar();
-
-        AkautingVendorsPage vendors = homePage.getMenu().goToExpenses().goToVendors();
-
-        AkautingAddVendors addVendors = vendors.clickFindButton();
-        addVendors.setNome("Teste").
-                setEmail("teste@teste.com").
-                setTax_Number("1").
-                clickCurrenctButton().
-                clickUsDollarButton().
-                setPhone("66666666").
-                setWebSite("www.teste.com").
-                setAddress("").
-                clickEnabledButton().
-                clickSaveButton();
-
-        String mensagem = addVendors.setMessage();
-
-        assertEquals("Vendor added!", mensagem);
+        
+        assertEquals("Dashboard", homePage.getTitle());
     }
-
-    @Test
-    public void EmailCadastrado() {
-
-        AkautingHomePage homePage = new AkautingHomePage(driver);
-        AkautingLogin login = new AkautingLogin(driver);
-
-        login.setEmail("teste@teste.com").
-                setSenha("utfpr").
-                Logar();
-
-        AkautingVendorsPage vendors = homePage.getMenu().goToExpenses().goToVendors();
-
-        AkautingAddVendors addVendors = vendors.clickFindButton();
-        addVendors.setNome("Teste").
-                setEmail("teste.teste.com").
-                setTax_Number("2").
-                clickCurrenctButton().
-                clickUsDollarButton().
-                setPhone("666666666").
-                setWebSite("www.teste.com").
-                setAddress("").
-                clickEnabledButton().
-                clickSaveButton();
-
-        String mensagem = addVendors.setErrorMessage();
-
-        assertEquals("The email must be a valid email address.", mensagem);
-    }
+    
+    
+//    @Ignore
+//    @Test
+//    public void CadastroComSucesso() {
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingVendorsPage vendors = homePage.getMenu().goToExpenses().goToVendors();
+//
+//        AkautingAddVendors addVendors = vendors.clickFindButton();
+//        addVendors.setNome("Teste").
+//                setEmail("teste@teste.com").
+//                setTax_Number("1").
+//                clickCurrenctButton().
+//                clickUsDollarButton().
+//                setPhone("66666666").
+//                setWebSite("www.teste.com").
+//                setAddress("").
+//                clickEnabledButton().
+//                clickSaveButton();
+//
+//        String mensagem = addVendors.setMessage();
+//
+//        assertEquals("Vendor added!", mensagem);
+//    }
+//    @Ignore
+//    @Test
+//    public void EmailCadastrado() {
+//
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingVendorsPage vendors = homePage.getMenu().goToExpenses().goToVendors();
+//
+//        AkautingAddVendors addVendors = vendors.clickFindButton();
+//        addVendors.setNome("Teste").
+//                setEmail("teste.teste.com").
+//                setTax_Number("2").
+//                clickCurrenctButton().
+//                clickUsDollarButton().
+//                setPhone("666666666").
+//                setWebSite("www.teste.com").
+//                setAddress("").
+//                clickEnabledButton().
+//                clickSaveButton();
+//
+//        String mensagem = addVendors.setErrorMessage();
+//
+//        assertEquals("The email must be a valid email address.", mensagem);
+//    }
 
 }

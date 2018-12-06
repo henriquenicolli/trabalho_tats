@@ -52,27 +52,29 @@ public class NonoTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Test
-    public void DeletarItem() {
-        AkautingHomePage homePage = new AkautingHomePage(driver);
-        AkautingLogin login = new AkautingLogin(driver);
-
-        login.setEmail("teste@teste.com").
-                setSenha("utfpr").
-                Logar();
-
-        AkautingItemsPage Item = homePage.getMenu().goToIncomes().goToItems();
-
-        try {
-            Item.clickButton().clickDeleteButton();
-            Thread.sleep(3000);
-            Item.clickConfirmarExclusao();
-        } catch (Exception e) {
-            System.out.println("Deu erro!");
-        }
-
-        String mensagem = Item.setMensagemAviso();
-        assertEquals("Warning: You are not allowed to delete Moto G5s Plus because it has 1 invoice related.",
-                mensagem);
-    }
+    
+    
+//    @Test
+//    public void DeletarItem() {
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingItemsPage Item = homePage.getMenu().goToIncomes().goToItems();
+//
+//        try {
+//            Item.clickButton().clickDeleteButton();
+//            Thread.sleep(3000);
+//            Item.clickConfirmarExclusao();
+//        } catch (Exception e) {
+//            System.out.println("Deu erro!");
+//        }
+//
+//        String mensagem = Item.setMensagemAviso();
+//        assertEquals("Warning: You are not allowed to delete Moto G5s Plus because it has 1 invoice related.",
+//                mensagem);
+//    }
 }

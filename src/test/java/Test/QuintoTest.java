@@ -1,88 +1,52 @@
 package Test;
 
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.AkautingRevenuesPage;
+import PageObjects.Setup;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.util.concurrent.TimeUnit;
 import org.junit.After;
-import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AkautingAddItems;
-import PageObjects.AkautingAddVendors;
-import PageObjects.AkauntingPage;
-import PageObjects.AkautingCategoriesPage;
-import PageObjects.AkautingHomePage;
-import PageObjects.AkautingInvoicesPage;
-import PageObjects.AkautingItemsPage;
-import PageObjects.AkautingLogin;
-import PageObjects.AkautingMenu;
-import PageObjects.AkautingVendorsPage;
+
 
 /**
  *
- * @author Henrique
+ * @author Henriqeu
  */
 public class QuintoTest {
-
-    private WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
 
     @BeforeClass
     public static void beforeClass() {
         WebDriverManager.chromedriver().setup();
-
     }
 
     @Before
     public void before() {
+        driver = Setup.setup();
+    }
 
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("headless");
-        chromeOptions.addArguments("window-size=1200x600");
-        chromeOptions.addArguments("lang=en-US");
-        chromeOptions.addArguments("start-maximized");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    @After
+    public void after() {
+        driver.close();
     }
 
     @Test
-    public void AlterarCor() {
-        AkautingHomePage homePage = new AkautingHomePage(driver);
+    public void caseTest05() {
         AkautingLogin login = new AkautingLogin(driver);
-
-        login.setEmail("teste@teste.com").
-                setSenha("utfpr").
-                Logar();
-
-        AkautingCategoriesPage categories = homePage.getMenu().goToSettings().goToCategories();
+        login.setEmail("teste@teste.com").setSenha("utfpr").Logar();
+        assertEquals("Dashboard - UTFPR", login.getTitle());
         
-        categories.clickGeneral().setColour("#0b0c0d").clickSave();
+        AkautingMenu menu = new AkautingMenu(driver);
+        menu.btnIncomes().btnRevenues();
+        assertEquals("Revenues - UTFPR", menu.getTitle());
         
-        String mensagem = categories.setMessage();
-        
-        assertEquals("Category updated!", mensagem);
-
-    }
-
-    @Test
-    public void CorInexistente() {
-        
-        AkautingHomePage homePage = new AkautingHomePage(driver);
-        AkautingLogin login = new AkautingLogin(driver);
-
-        login.setEmail("teste@teste.com").
-                setSenha("utfpr").
-                Logar();
-
-        AkautingCategoriesPage categories = homePage.getMenu().goToSettings().goToCategories();
-        
-        categories.clickGeneral().setColour("#/*/*/*/*/*/").clickSave();
-        
-        String mensagem = categories.setMessage();
-        
-        assertEquals("Category updated!", mensagem);
+        AkautingRevenuesPage revenues = new AkautingRevenuesPage(driver);
+        revenues.btnActions().btnDelete().btnDeleteConfirm();
+        assertEquals("Revenues - UTFPR", revenues.getTitle());
     }
 }

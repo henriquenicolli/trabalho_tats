@@ -143,4 +143,22 @@ public class AkautingMenu extends AkautingBasePage{
         wait.until( ExpectedConditions.elementToBeClickable(menuOption) );
         menuOption.click();
     }
+    
+    @FindBy(xpath = "/html/body/div[1]/aside/div/section/ul[2]/li[3]/a")
+    WebElement btnIncomes;
+    public AkautingMenu btnIncomes() {
+        btnIncomes.click();
+        return new AkautingMenu(driver);
+    }  
+    
+    @FindBy(xpath = "/html/body/div[1]/aside/div/section/ul[2]/li[3]/ul/li[2]/a/span")
+    WebElement btnRevenues;
+    public AkautingMenu btnRevenues() {
+        btnRevenues.click();
+        return new AkautingMenu(driver);
+    }  
+    
+    public String getTitle(){
+        return driver.getTitle();
+    }
 }

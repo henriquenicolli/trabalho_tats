@@ -47,10 +47,10 @@ public class TerceiroTest {
         chromeOptions.addArguments("start-maximized");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-
     
-    //@Test 
-    public void ItemCadastradoComSucesso() {
+
+    @Test
+    public void DeletarItem() {
         AkautingHomePage homePage = new AkautingHomePage(driver);
         AkautingLogin login = new AkautingLogin(driver);
 
@@ -58,77 +58,120 @@ public class TerceiroTest {
                 setSenha("utfpr").
                 Logar();
 
-        AkautingInvoicesPage invoices = homePage.getMenu().goToIncomes().goToInvoices();
-
-        AkautingAddInvoices addInvoices = invoices.clickFindButton();
+        AkautingItemsPage Item = homePage.getMenu().goToIncomes().goToItems();
 
         try {
-            //Caso não tenha nenhum Vendedor Cadastrado
-            addInvoices.clickNewCustomer().
-                    setNome("Teste").
-                    setEmail("teste@teste.com").
-                    setTaxNumber("1").
-                    setAddress("").
-                    clickSaveCustomr();
+            Item.clickButton().clickDeleteButton();
             Thread.sleep(3000);
-
-            //Cadastro da Fatura
-            addInvoices.
-                    clickDayInvoice("2018-10-10").
-                    clickDayDue("2018-10-20").
-                    setOrderNumber("1");
-            Thread.sleep(3000);
-            
-            addInvoices.setItemsName("Teste").
-                    setQuantity("2").
-                    setPrice("800").
-                    setNotes("").
-                    clickSppinerCategory().
-                    clickDeposit().
-                    clickSave();
-
+            Item.clickConfirmarExclusao();
         } catch (Exception e) {
             System.out.println("Deu erro!");
         }
-        
-        String produto = addInvoices.setProduto();
-        String valor = addInvoices.setValor();
-        
-        assertEquals("Teste", produto);
-        assertEquals("$400.00", valor);
-        
+
+        String mensagem = Item.setMensagemAviso();
+        System.out.println("resposta>>>"+mensagem);
+        assertEquals("Search:\n" +
+        "All Categories\n" +
+        "General\n" +
+        " Filter\n" +
+        "Show:\n" +
+        "10\n" +
+        "25\n" +
+        "50\n" +
+        "100\n" +
+        "Picture Name  Category  Quantity  Sale Price  Purchase Price  Status  Actions\n" +
+        "Nome do Produto General 5 $20.00 $30.00 Enabled\n" +
+        "Edit\n" +
+        "Disable\n" +
+        "Duplicate\n" +
+        "Delete\n" +
+        "Showing 1 to 1 of 1 items\n" +
+        "«\n" +
+        "1\n" +
+        "»",
+        mensagem);
     }
-
-    @Test
-    public void ErroNoCadastro() {
-
-        AkautingHomePage homePage = new AkautingHomePage(driver);
-        AkautingLogin login = new AkautingLogin(driver);
-
-        login.setEmail("teste@teste.com").
-                setSenha("utfpr").
-                Logar();
-
-        AkautingItemsPage items = homePage.getMenu().goToItems();
-
-        AkautingAddItems addItems = items.clickFindButton();
-
-        addItems.setNome("Teste").
-                setSKU("1").
-                setDescricao("Descricao de teste").
-                setSalePrice("200").
-                setPurchasePrice("400").
-                setQuantidade("10").
-                clickSpinnerTax().
-                clickTaxButton().
-                clickSpinnerCategory().
-                clickGeneral().
-                clickEnabled().
-                clickSave();
-
-        String mensagem = addItems.setErrorMessage();
-
-        assertEquals("The sku has already been taken.", mensagem);
-    }
+    
+    //@Test 
+//    public void ItemCadastradoComSucesso() {
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingInvoicesPage invoices = homePage.getMenu().goToIncomes().goToInvoices();
+//
+//        AkautingAddInvoices addInvoices = invoices.clickFindButton();
+//
+//        try {
+//            //Caso não tenha nenhum Vendedor Cadastrado
+//            addInvoices.clickNewCustomer().
+//                    setNome("Teste").
+//                    setEmail("teste@teste.com").
+//                    setTaxNumber("1").
+//                    setAddress("").
+//                    clickSaveCustomr();
+//            Thread.sleep(3000);
+//
+//            //Cadastro da Fatura
+//            addInvoices.
+//                    clickDayInvoice("2018-10-10").
+//                    clickDayDue("2018-10-20").
+//                    setOrderNumber("1");
+//            Thread.sleep(3000);
+//            
+//            addInvoices.setItemsName("Teste").
+//                    setQuantity("2").
+//                    setPrice("800").
+//                    setNotes("").
+//                    clickSppinerCategory().
+//                    clickDeposit().
+//                    clickSave();
+//
+//        } catch (Exception e) {
+//            System.out.println("Deu erro!");
+//        }
+//        
+//        String produto = addInvoices.setProduto();
+//        String valor = addInvoices.setValor();
+//        
+//        assertEquals("Teste", produto);
+//        assertEquals("$400.00", valor);
+//        
+//    }
+//
+//    @Test
+//    public void ErroNoCadastro() {
+//
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingItemsPage items = homePage.getMenu().goToItems();
+//
+//        AkautingAddItems addItems = items.clickFindButton();
+//
+//        addItems.setNome("Teste").
+//                setSKU("1").
+//                setDescricao("Descricao de teste").
+//                setSalePrice("200").
+//                setPurchasePrice("400").
+//                setQuantidade("10").
+//                clickSpinnerTax().
+//                clickTaxButton().
+//                clickSpinnerCategory().
+//                clickGeneral().
+//                clickEnabled().
+//                clickSave();
+//
+//        String mensagem = addItems.setErrorMessage();
+//
+//        assertEquals("The sku has already been taken.", mensagem);
+//    }
 
 }

@@ -52,21 +52,21 @@ public class OitavoTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Test
-    public void VerificarFatura() {
-        AkautingHomePage homePage = new AkautingHomePage(driver);
-        AkautingLogin login = new AkautingLogin(driver);
-
-        login.setEmail("teste@teste.com").
-                setSenha("utfpr").
-                Logar();
-
-        AkautingCostumersPage costumers = homePage.getMenu().goToIncomes().goToCustomers();
-        String mensagem = costumers.clickFilter().setVerificarFatura();
-        
-        assertEquals("$2,698.00", mensagem);
-
-        
-    }
+//    @Test
+//    public void VerificarFatura() {
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingCostumersPage costumers = homePage.getMenu().goToIncomes().goToCustomers();
+//        String mensagem = costumers.clickFilter().setVerificarFatura();
+//        
+//        assertEquals("$2,698.00", mensagem);
+//
+//        
+//    }
 
 }

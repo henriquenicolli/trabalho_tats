@@ -53,37 +53,37 @@ public class DecimoTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Test
-    public void MudarIdioma() {
-        AkautingHomePage homePage = new AkautingHomePage(driver);
-        AkautingLogin login = new AkautingLogin(driver);
-
-        login.setEmail("teste@teste.com").
-                setSenha("utfpr").
-                Logar();
-
-        AkautingProfilePage profile = homePage.getMenu().goToProfile().goToProfileButtom();
-        
-        profile.setNome("teste2@teste.com").
-                setSenha("utfpr").
-                setConfirmarSenha("utfpr").
-                clickVerIdioma().
-                clickIdioma().
-                clickSave();
-        
-        String mensagem = profile.setMensagem();
-        assertEquals("User updated!", mensagem);
-        
-        profile = homePage.getMenu().goToProfile().goToProfileButtom();
-
-        profile.setNome("teste2@teste.com").
-                setSenha("utfpr").
-                setConfirmarSenha("utfpr").
-                clickVerIdioma().
-                clickIdioma2().
-                clickSave();
-        
-        String mensagem2 = profile.setMensagem();
-        assertEquals("Usuário atualizado!", mensagem2);
-   }
+//    @Test
+//    public void MudarIdioma() {
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingProfilePage profile = homePage.getMenu().goToProfile().goToProfileButtom();
+//        
+//        profile.setNome("teste2@teste.com").
+//                setSenha("utfpr").
+//                setConfirmarSenha("utfpr").
+//                clickVerIdioma().
+//                clickIdioma().
+//                clickSave();
+//        
+//        String mensagem = profile.setMensagem();
+//        assertEquals("User updated!", mensagem);
+//        
+//        profile = homePage.getMenu().goToProfile().goToProfileButtom();
+//
+//        profile.setNome("teste2@teste.com").
+//                setSenha("utfpr").
+//                setConfirmarSenha("utfpr").
+//                clickVerIdioma().
+//                clickIdioma2().
+//                clickSave();
+//        
+//        String mensagem2 = profile.setMensagem();
+//        assertEquals("Usuário atualizado!", mensagem2);
+//   }
 }

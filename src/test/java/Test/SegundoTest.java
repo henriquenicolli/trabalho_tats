@@ -59,14 +59,12 @@ public class SegundoTest {
 
         AkautingAddItems addItems = items.clickFindButton();
 
-        addItems.setNome("Teste").
-                setSKU("5").
+        addItems.setNome("Nome do Produto").
+                setSKU("001").
                 setDescricao("Descricao de teste").
-                setSalePrice("200").
-                setPurchasePrice("400").
-                setQuantidade("10").
-                clickSpinnerTax().
-                clickTaxButton().
+                setSalePrice("20,00").
+                setPurchasePrice("30,00").
+                setQuantidade("5").
                 clickSpinnerCategory().
                 clickGeneral().
                 clickEnabled().
@@ -78,36 +76,36 @@ public class SegundoTest {
 
     }
 
-    @Test
-    public void ErroNoCadastro() {
-
-        AkautingHomePage homePage = new AkautingHomePage(driver);
-        AkautingLogin login = new AkautingLogin(driver);
-
-        login.setEmail("teste@teste.com").
-                setSenha("utfpr").
-                Logar();
-
-        AkautingItemsPage items = homePage.getMenu().goToItems();
-
-        AkautingAddItems addItems = items.clickFindButton();
-
-        addItems.setNome("Teste").
-                setSKU("1").
-                setDescricao("Descricao de teste").
-                setSalePrice("200").
-                setPurchasePrice("400").
-                setQuantidade("10").
-                clickSpinnerTax().
-                clickTaxButton().
-                clickSpinnerCategory().
-                clickGeneral().
-                clickEnabled().
-                clickSave();
-
-        String mensagem = addItems.setErrorMessage();
-
-        assertEquals("The sku has already been taken.", mensagem);
-    }
+//    @Test
+//    public void ErroNoCadastro() {
+//
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingItemsPage items = homePage.getMenu().goToItems();
+//
+//        AkautingAddItems addItems = items.clickFindButton();
+//
+//        addItems.setNome("Teste").
+//                setSKU("1").
+//                setDescricao("Descricao de teste").
+//                setSalePrice("200").
+//                setPurchasePrice("400").
+//                setQuantidade("10").
+//                clickSpinnerTax().
+//                clickTaxButton().
+//                clickSpinnerCategory().
+//                clickGeneral().
+//                clickEnabled().
+//                clickSave();
+//
+//        String mensagem = addItems.setErrorMessage();
+//
+//        assertEquals("The sku has already been taken.", mensagem);
+//    }
 
 }

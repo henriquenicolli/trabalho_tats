@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import PageObjects.AkautingAddItems;
 import PageObjects.AkautingAddVendors;
 import PageObjects.AkauntingPage;
+import PageObjects.AkautingAddInvoices;
 import PageObjects.AkautingCategoriesPage;
 import PageObjects.AkautingHomePage;
 import PageObjects.AkautingInvoicesPage;
@@ -49,9 +50,10 @@ public class SetimoTest {
         chromeOptions.addArguments("start-maximized");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-
-    @Test
-    public void SelecionarDespesas() {
+    
+    
+    @Test 
+    public void ItemCadastradoComSucesso() {
         AkautingHomePage homePage = new AkautingHomePage(driver);
         AkautingLogin login = new AkautingLogin(driver);
 
@@ -59,8 +61,49 @@ public class SetimoTest {
                 setSenha("utfpr").
                 Logar();
 
-        AkautingTransactionPage transaction = homePage.getMenu().goToBanking().goToTransaction();
-        transaction.clickExpense().clickFilter();
+        AkautingInvoicesPage invoices = homePage.getMenu().goToIncomes().goToInvoices();
+
+        AkautingAddInvoices addInvoices = invoices.clickFindButton();
+
+        try {
+            //Cadastro da Fatura
+            addInvoices.
+                    clickDayInvoice("2018-10-10").
+                    clickDayDue("2018-10-20").
+                    setOrderNumber("1");
+            Thread.sleep(3000);
+            
+            addInvoices.setItemsName("Teste").
+                    setQuantity("2").
+                    setPrice("800").
+                    setNotes("").
+                    clickSppinerCategory().
+                    clickDeposit().
+                    clickSave();
+
+        } catch (Exception e) {
+            System.out.println("Deu erro!");
+        }
+        
+        String produto = addInvoices.setProduto();
+        String valor = addInvoices.setValor();
+        
+        assertEquals("Teste", produto);
+        assertEquals("$400.00", valor);
+        
     }
+
+//    @Test
+//    public void SelecionarDespesas() {
+//        AkautingHomePage homePage = new AkautingHomePage(driver);
+//        AkautingLogin login = new AkautingLogin(driver);
+//
+//        login.setEmail("teste@teste.com").
+//                setSenha("utfpr").
+//                Logar();
+//
+//        AkautingTransactionPage transaction = homePage.getMenu().goToBanking().goToTransaction();
+//        transaction.clickExpense().clickFilter();
+//    }
 
 }

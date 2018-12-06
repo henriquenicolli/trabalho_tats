@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AkautingLogin extends AkautingBasePage{
 
+    
     @FindBy(name = "email")
     WebElement loginEmail;
     
@@ -38,8 +39,11 @@ public class AkautingLogin extends AkautingBasePage{
     
     public AkautingLogin Logar() {
         loginButton.click();
-        return this;
+        return new AkautingLogin(driver);
    }
-
+    
+    public String getTitle(){
+        return driver.getTitle();
+    }
 }
 
