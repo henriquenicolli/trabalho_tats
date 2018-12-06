@@ -1,89 +1,52 @@
 package Test;
 
+import PageObjects.AkautingInvoicesPage;
+import PageObjects.AkautingLogin;
+import PageObjects.AkautingMenu;
+import PageObjects.Setup;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.util.concurrent.TimeUnit;
 import org.junit.After;
-import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import PageObjects.AkautingAddInvoices;
-import PageObjects.AkautingAddItems;
-import PageObjects.AkautingAddVendors;
-import PageObjects.AkauntingPage;
-import PageObjects.AkautingCategoriesPage;
-import PageObjects.AkautingCostumersPage;
-import PageObjects.AkautingHomePage;
-import PageObjects.AkautingInvoicesPage;
-import PageObjects.AkautingItemsPage;
-import PageObjects.AkautingLogin;
-import PageObjects.AkautingMenu;
-import PageObjects.AkautingProfilePage;
-import PageObjects.AkautingProfitLossPage;
-import PageObjects.AkautingTransactionPage;
-import PageObjects.AkautingVendorsPage;
+
 
 /**
  *
  * @author Henrique
  */
 public class DecimoTest {
-
-    private WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
 
     @BeforeClass
     public static void beforeClass() {
         WebDriverManager.chromedriver().setup();
-
     }
 
     @Before
     public void before() {
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("headless");
-        chromeOptions.addArguments("window-size=1200x600");
-        chromeOptions.addArguments("lang=en-US");
-        chromeOptions.addArguments("start-maximized");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver = Setup.setup();
     }
 
-//    @Test
-//    public void MudarIdioma() {
-//        AkautingHomePage homePage = new AkautingHomePage(driver);
-//        AkautingLogin login = new AkautingLogin(driver);
-//
-//        login.setEmail("teste@teste.com").
-//                setSenha("utfpr").
-//                Logar();
-//
-//        AkautingProfilePage profile = homePage.getMenu().goToProfile().goToProfileButtom();
-//        
-//        profile.setNome("teste2@teste.com").
-//                setSenha("utfpr").
-//                setConfirmarSenha("utfpr").
-//                clickVerIdioma().
-//                clickIdioma().
-//                clickSave();
-//        
-//        String mensagem = profile.setMensagem();
-//        assertEquals("User updated!", mensagem);
-//        
-//        profile = homePage.getMenu().goToProfile().goToProfileButtom();
-//
-//        profile.setNome("teste2@teste.com").
-//                setSenha("utfpr").
-//                setConfirmarSenha("utfpr").
-//                clickVerIdioma().
-//                clickIdioma2().
-//                clickSave();
-//        
-//        String mensagem2 = profile.setMensagem();
-//        assertEquals("Usuário atualizado!", mensagem2);
-//   }
+    @After
+    public void after() {
+        driver.close();
+    }
+
+    @Test
+    public void caseTest10() {
+        AkautingLogin login = new AkautingLogin(driver);
+        login.setEmail("teste@teste.com").setSenha("utfpr").Logar();
+        assertEquals("Dashboard - UTFPR", login.getTitle());
+        
+        AkautingMenu menu = new AkautingMenu(driver);
+        menu.btnIncomes().btnInvoices();
+        assertEquals("Invoices - UTFPR", menu.getTitle());
+        
+        AkautingInvoicesPage invoices = new AkautingInvoicesPage(driver);
+        invoices.btnAdd().setCustomer("Teste").setCategory("Sales").btnDate().setDate("2018-12-31").btnSave();
+        assertEquals("Invoices - UTFPR", invoices.getTitle());
+    }
 }

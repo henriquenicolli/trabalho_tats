@@ -49,14 +49,14 @@ public class AkautingRevenuesPage extends AkautingBasePage {
         return new AkautingRevenuesPage(driver);
     }
     
-    @FindBy(xpath = "//*[@id=\"tbl-revenues\"]/tbody/tr/td[6]/div/button/i")
+    @FindBy(xpath = "//*[@id=\"tbl-revenues\"]/tbody/tr/td[6]/div/button")
     WebElement btnActions;
     public AkautingRevenuesPage btnActions() {
         btnActions.click();
         return new AkautingRevenuesPage(driver);
     }
     
-    @FindBy(xpath = "//*[@id=\"revenue-1\"]/button")
+    @FindBy(xpath = "//*[@id=\"revenue-3\"]/button")
     WebElement btnDelete;
     public AkautingRevenuesPage btnDelete() {
         btnDelete.click();

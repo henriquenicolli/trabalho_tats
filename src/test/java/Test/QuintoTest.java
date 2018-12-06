@@ -1,8 +1,8 @@
 package Test;
 
+import PageObjects.AkautingCostumersPage;
 import PageObjects.AkautingLogin;
 import PageObjects.AkautingMenu;
-import PageObjects.AkautingRevenuesPage;
 import PageObjects.Setup;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -42,11 +42,11 @@ public class QuintoTest {
         assertEquals("Dashboard - UTFPR", login.getTitle());
         
         AkautingMenu menu = new AkautingMenu(driver);
-        menu.btnIncomes().btnRevenues();
-        assertEquals("Revenues - UTFPR", menu.getTitle());
+        menu.btnIncomes().btnCustomers();
+        assertEquals("Customers - UTFPR", menu.getTitle());
         
-        AkautingRevenuesPage revenues = new AkautingRevenuesPage(driver);
-        revenues.btnActions().btnDelete().btnDeleteConfirm();
-        assertEquals("Revenues - UTFPR", revenues.getTitle());
+        AkautingCostumersPage costumers = new AkautingCostumersPage(driver);
+        costumers.btnActions().btnDelete().btnDeleteConfirm();
+        assertEquals("Customers - UTFPR", costumers.getTitle());
     }
 }

@@ -22,6 +22,7 @@ import PageObjects.AkautingItemsPage;
 import PageObjects.AkautingLogin;
 import PageObjects.AkautingMenu;
 import PageObjects.AkautingVendorsPage;
+import PageObjects.Setup;
 
 /**
  *
@@ -29,23 +30,21 @@ import PageObjects.AkautingVendorsPage;
  */
 public class TerceiroTest {
 
-    private WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
 
     @BeforeClass
     public static void beforeClass() {
         WebDriverManager.chromedriver().setup();
-
     }
 
     @Before
     public void before() {
+        driver = Setup.setup();
+    }
 
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("headless");
-        chromeOptions.addArguments("window-size=1200x600");
-        chromeOptions.addArguments("lang=en-US");
-        chromeOptions.addArguments("start-maximized");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    @After
+    public void after() {
+        driver.close();
     }
     
 

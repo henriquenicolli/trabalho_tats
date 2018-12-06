@@ -156,7 +156,21 @@ public class AkautingMenu extends AkautingBasePage{
     public AkautingMenu btnRevenues() {
         btnRevenues.click();
         return new AkautingMenu(driver);
+    }
+            
+    @FindBy(xpath = "/html/body/div[1]/aside/div/section/ul[2]/li[3]/ul/li[3]/a/span")
+    WebElement btnCustomers;
+    public AkautingMenu btnCustomers() {
+        btnCustomers.click();
+        return new AkautingMenu(driver);
     }  
+    
+    @FindBy(xpath = "/html/body/div/aside/div/section/ul[2]/li[3]/ul/li[1]/a")
+    WebElement btnInvoices;
+    public AkautingMenu btnInvoices() {
+        btnInvoices.click();
+        return new AkautingMenu(driver);
+    } 
     
     public String getTitle(){
         return driver.getTitle();

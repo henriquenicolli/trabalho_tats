@@ -30,4 +30,71 @@ public class AkautingInvoicesPage extends AkauntingPage{
         showButton.click();
         return new AkautingAddInvoices(driver);
     }
+    
+    @FindBy(xpath = "//*[@id=\"select2-customer_id-container\"]")
+    WebElement customer;
+        public AkautingInvoicesPage setCustomer(String value) {
+        customer.sendKeys(value); 
+        return this;
+    }
+        
+    @FindBy(xpath = "//*[@id=\"due_at\"]")
+    WebElement date;
+    public AkautingInvoicesPage setDate(String value) {
+        date.sendKeys(value); 
+        return this;
+    }
+        
+    @FindBy(xpath = "//*[@id=\"select2-category_id-container\"]")
+    WebElement category;
+    public AkautingInvoicesPage setCategory(String value) {
+        category.sendKeys(value); 
+        return this;
+    }
+    
+    @FindBy(xpath = "//*[@id=\"due_at\"]")
+    WebElement btnDate;
+    public AkautingInvoicesPage btnDate() {
+        date.click(); 
+        return new AkautingInvoicesPage(driver);
+    }
+    
+    @FindBy(xpath = "/html/body/div/div/section[1]/h1/span[1]/a")
+    WebElement btnAdd;
+    public AkautingInvoicesPage btnAdd() {
+        btnAdd.click();
+        return new AkautingInvoicesPage(driver);
+    }
+    
+    @FindBy(xpath = "/html/body/div/div/section[2]/div/form/div[2]/div/div/button")
+    WebElement btnSave;
+    public AkautingInvoicesPage btnSave() {
+        btnSave.click();
+        return new AkautingInvoicesPage(driver);
+    }
+    
+    @FindBy(xpath = "//*[@id=\"tbl-customers\"]/tbody/tr[1]/td[5]/div/button")
+    WebElement btnActions;
+    public AkautingInvoicesPage btnActions() {
+        btnActions.click();
+        return new AkautingInvoicesPage(driver);
+    }
+    
+    @FindBy(xpath = "//*[@id=\"customer-1\"]/button")
+    WebElement btnDelete;
+    public AkautingInvoicesPage btnDelete() {
+        btnDelete.click();
+        return new AkautingInvoicesPage(driver);
+    }
+    
+    @FindBy(xpath = "//*[@id=\"confirm-modal\"]/div/div/div[3]/div/button[1]")
+    WebElement btnDeleteConfirm;
+    public AkautingInvoicesPage btnDeleteConfirm() {
+        btnDeleteConfirm.click();
+        return new AkautingInvoicesPage(driver);
+    }
+    
+    public String getTitle(){
+        return driver.getTitle();
+    }
 }

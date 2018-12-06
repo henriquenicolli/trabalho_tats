@@ -1,5 +1,6 @@
 package Test;
 
+import PageObjects.AkautingCostumersPage;
 import PageObjects.AkautingLogin;
 import PageObjects.AkautingMenu;
 import PageObjects.AkautingRevenuesPage;
@@ -42,11 +43,11 @@ public class QuartoTest {
         assertEquals("Dashboard - UTFPR", login.getTitle());
         
         AkautingMenu menu = new AkautingMenu(driver);
-        menu.btnIncomes().btnRevenues();
-        assertEquals("Revenues - UTFPR", menu.getTitle());
+        menu.btnIncomes().btnCustomers();
+        assertEquals("Customers - UTFPR", menu.getTitle());
         
-        AkautingRevenuesPage revenues = new AkautingRevenuesPage(driver);
-        revenues.btnAdd().setCategory("Sales").btnOk();
-        assertEquals("New Revenue - UTFPR", revenues.getTitle());
+        AkautingCostumersPage costumers = new AkautingCostumersPage(driver);
+        costumers.btnAdd().setName("Teste").btnSave();
+        assertEquals("Customers - UTFPR", costumers.getTitle());
     }
 }
