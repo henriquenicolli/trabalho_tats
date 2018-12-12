@@ -55,18 +55,18 @@ public class AkautingCostumersPage extends AkauntingPage{
         return new AkautingHomePage(driver);
     }
     
-    @FindBy(xpath = "//*[@id=\"tbl-customers\"]/tbody/tr[1]/td[5]/div/button")
+    @FindBy(xpath = "//*[@id=\"tbl-customers\"]/tbody/tr/td[5]/div/button")
     WebElement btnActions;
-    public AkautingCostumersPage btnActions() {
+    public AkautingHomePage btnActions() {
         btnActions.click();
-        return this;
+        return new AkautingHomePage(driver);
     }
     
-    @FindBy(xpath = "//*[@id=\"customer-2\"]/button")
+    @FindBy(xpath = "//*[@id=\"customer-11\"]/button")
     WebElement btnDelete;
-    public AkautingCostumersPage btnDelete() {
+    public AkautingHomePage btnDelete() {
         btnDelete.click();
-        return this;
+        return new AkautingHomePage(driver);
     }
     
     @FindBy(xpath = "//*[@id=\"confirm-modal\"]/div/div/div[3]/div/button[1]")

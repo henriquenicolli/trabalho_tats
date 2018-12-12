@@ -31,7 +31,7 @@ public class AkautingInvoicesPage extends AkauntingPage{
         return new AkautingAddInvoices(driver);
     }
     
-    @FindBy(xpath = "//*[@id=\"select2-customer_id-container\"]")
+    @FindBy(xpath = "//*[@id=\"select2-customer_id-container\"]/span")
     WebElement customer;
         public AkautingInvoicesPage setCustomer(String value) {
         customer.sendKeys(value); 
@@ -63,7 +63,7 @@ public class AkautingInvoicesPage extends AkauntingPage{
     WebElement btnAdd;
     public AkautingInvoicesPage btnAdd() {
         btnAdd.click();
-        return new AkautingInvoicesPage(driver);
+        return this;
     }
     
     @FindBy(xpath = "/html/body/div/div/section[2]/div/form/div[2]/div/div/button")

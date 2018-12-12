@@ -43,6 +43,7 @@ public class Caso01Test {
             .setSenha("utfpr")
             .Logar();
         
-        assertEquals("Dashboard", login.getTitle());
+        
+        assertEquals("Dashboard", homePage.getTitle());
     }
 }

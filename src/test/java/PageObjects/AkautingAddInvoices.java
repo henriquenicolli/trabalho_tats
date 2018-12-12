@@ -169,4 +169,8 @@ public class AkautingAddInvoices extends AkautingBasePage{
         save.click();
         return new AkautingHomePage(driver);
     }
+    
+    public String getTitle(){
+        return driver.getTitle();
+    }
 }

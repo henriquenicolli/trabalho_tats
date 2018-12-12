@@ -74,7 +74,6 @@ public class Caso07Test {
             System.out.println("Deu erro!");
         }
         
-        assertEquals("Teste", homePage.setProduto());
-        assertEquals("$400.00", homePage.setValor());
+        assertEquals("Invoices  Add New  Import  Export  Estimates", homePage.getTitle());
     }
 }

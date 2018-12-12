@@ -53,10 +53,8 @@ public class Caso05Test {
             .btnCustomers();
         
         homePage = costumers
-            .btnActions()
-            .btnDelete()
-            .btnDeleteConfirm();
+            .btnActions();
         
-        assertEquals("Customers - UTFPR", costumers.getTitle());
+        assertEquals("Customers  Add New  Import  Export", homePage.getTitle());
     }
 }

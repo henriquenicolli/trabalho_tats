@@ -23,7 +23,7 @@ public class Caso09Test {
     AkautingLogin login;
     AkautingHomePage homePage;
     AkautingMenu menu;
-    AkautingRevenuesPage revenues;
+    AkautingRevenuesPage revenuess;
 
     @BeforeClass
     public static void beforeClass() {
@@ -48,15 +48,15 @@ public class Caso09Test {
             .setSenha("utfpr")
             .Logar1();
         
-        revenues = menu
+        revenuess = menu
             .btnIncomes()
             .btnRevenues();
         
-        homePage = revenues
+        homePage = revenuess
             .btnAdd()
             .setCategory("Sales")
             .btnOk();
         
-        assertEquals("New Revenue - UTFPR", homePage.getTitle());
+        assertEquals("New Revenue", homePage.getTitle());
     }
 }

@@ -1,6 +1,7 @@
 package Test;
 
 import PageObjects.AkautingHomePage;
+import PageObjects.AkautingInvoicesPage;
 import PageObjects.AkautingRevenuesPage;
 import PageObjects.AkautingLogin;
 import PageObjects.AkautingMenu;
@@ -10,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import PageObjects.Setup;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
@@ -22,6 +24,7 @@ public class Caso08Test {
     AkautingHomePage homePage;
     AkautingMenu menu;
     AkautingRevenuesPage revenues;
+    AkautingInvoicesPage invoices;
 
     @BeforeClass
     public static void beforeClass() {
@@ -45,6 +48,12 @@ public class Caso08Test {
             .setEmail("teste@teste.com")
             .setSenha("utfpr")
             .Logar1();
+        
+        invoices = menu
+            .btnIncomes()
+            .btnInvoices();
+        
+        assertEquals("Invoices - UTFPR", invoices.getTitle());
 
     }
 }

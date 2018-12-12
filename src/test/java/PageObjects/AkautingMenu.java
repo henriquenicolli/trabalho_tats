@@ -153,7 +153,7 @@ public class AkautingMenu extends AkautingBasePage{
         menuOption.click();
     }
     
-    @FindBy(xpath = "/html/body/div[1]/aside/div/section/ul[2]/li[3]/a")
+    @FindBy(xpath = "/html/body/div/aside/div/section/ul[2]/li[3]/a/span[1]")
     WebElement btnIncomes;
     public AkautingMenu btnIncomes() {
         btnIncomes.click();
@@ -167,7 +167,7 @@ public class AkautingMenu extends AkautingBasePage{
         return new AkautingRevenuesPage(driver);
     }
             
-    @FindBy(xpath = "/html/body/div[1]/aside/div/section/ul[2]/li[3]/ul/li[3]/a/span")
+    @FindBy(xpath = "/html/body/div/aside/div/section/ul[2]/li[3]/ul/li[3]/a/span")
     WebElement btnCustomers;
     public AkautingCostumersPage btnCustomers() {
         btnCustomers.click();
