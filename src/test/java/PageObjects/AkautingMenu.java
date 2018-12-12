@@ -58,6 +58,15 @@ public class AkautingMenu extends AkautingBasePage{
     @FindBy(xpath = "/html/body/div/header/nav/div/ul/li[5]/ul/li[3]/div[1]/a")
     WebElement profileButton;
     
+    @FindBy(xpath = "/html/body/div/div/section[2]/div[1]/section/div[4]/div/table/tbody/tr[2]/td[1]/small")
+    WebElement verificarSku;
+    
+    @FindBy(xpath = "/html/body/div/div/section[2]/div[2]/section/div[4]/div/table/tbody/tr[2]/td[1]/text()")
+    WebElement produto;
+    
+    @FindBy(xpath = "/html/body/div/div/section[2]/div[2]/section/div[4]/div/table/tbody/tr[2]/td[4]")
+    WebElement valor;
+    
     public AkautingMenu(WebDriver driver) {
         super(driver);
     }
@@ -72,9 +81,9 @@ public class AkautingMenu extends AkautingBasePage{
         return new AkautingItemsPage(driver);
     }
      
-    public AkautingInvoicesPage goToInvoices() {
+    public AkautingAddInvoices goToInvoices() {
         clickMenuOption(invoices);
-        return new AkautingInvoicesPage(driver);
+        return new AkautingAddInvoices(driver);
     }
     
     public AkautingVendorsPage goToVendors() {
@@ -148,31 +157,43 @@ public class AkautingMenu extends AkautingBasePage{
     WebElement btnIncomes;
     public AkautingMenu btnIncomes() {
         btnIncomes.click();
-        return new AkautingMenu(driver);
+        return this;
     }  
     
     @FindBy(xpath = "/html/body/div[1]/aside/div/section/ul[2]/li[3]/ul/li[2]/a/span")
     WebElement btnRevenues;
-    public AkautingMenu btnRevenues() {
+    public AkautingRevenuesPage btnRevenues() {
         btnRevenues.click();
-        return new AkautingMenu(driver);
+        return new AkautingRevenuesPage(driver);
     }
             
     @FindBy(xpath = "/html/body/div[1]/aside/div/section/ul[2]/li[3]/ul/li[3]/a/span")
     WebElement btnCustomers;
-    public AkautingMenu btnCustomers() {
+    public AkautingCostumersPage btnCustomers() {
         btnCustomers.click();
-        return new AkautingMenu(driver);
+        return new AkautingCostumersPage(driver);
     }  
     
     @FindBy(xpath = "/html/body/div/aside/div/section/ul[2]/li[3]/ul/li[1]/a")
     WebElement btnInvoices;
-    public AkautingMenu btnInvoices() {
+    public AkautingInvoicesPage btnInvoices() {
         btnInvoices.click();
-        return new AkautingMenu(driver);
+        return new AkautingInvoicesPage(driver);
     } 
     
     public String getTitle(){
         return driver.getTitle();
+    }
+    
+    public String setProduto() {
+        return produto.getText();
+    }
+    
+    public String setVerificarSku() {
+        return verificarSku.getText();
+    }
+    
+    public String setValor() {
+        return valor.getText();
     }
 }

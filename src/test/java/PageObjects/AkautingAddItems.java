@@ -122,9 +122,9 @@ public class AkautingAddItems extends AkautingBasePage{
         return new AkautingAddItems(driver);
     }
     
-    public AkautingAddItems clickSave() {
+    public AkautingHomePage clickSave() {
         save.click();
-        return new AkautingAddItems(driver);
+        return new AkautingHomePage(driver);
     }
     
     public String setMessage() {

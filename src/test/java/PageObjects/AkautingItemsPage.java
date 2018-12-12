@@ -49,9 +49,9 @@ public class AkautingItemsPage extends AkauntingPage{
         return new AkautingItemsPage(driver);
     }
     
-    public AkautingItemsPage clickConfirmarExclusao() {
+    public AkautingHomePage clickConfirmarExclusao() {
         confirm.click();
-        return new AkautingItemsPage(driver);
+        return new AkautingHomePage(driver);
     }
     
     public String setMensagemAviso() {

@@ -50,30 +50,30 @@ public class AkautingCostumersPage extends AkauntingPage{
     
     @FindBy(xpath = "/html/body/div/div/section[2]/div/form/div[2]/div/div/button")
     WebElement btnSave;
-    public AkautingCostumersPage btnSave() {
+    public AkautingHomePage btnSave() {
         btnSave.click();
-        return new AkautingCostumersPage(driver);
+        return new AkautingHomePage(driver);
     }
     
     @FindBy(xpath = "//*[@id=\"tbl-customers\"]/tbody/tr[1]/td[5]/div/button")
     WebElement btnActions;
     public AkautingCostumersPage btnActions() {
         btnActions.click();
-        return new AkautingCostumersPage(driver);
+        return this;
     }
     
     @FindBy(xpath = "//*[@id=\"customer-2\"]/button")
     WebElement btnDelete;
     public AkautingCostumersPage btnDelete() {
         btnDelete.click();
-        return new AkautingCostumersPage(driver);
+        return this;
     }
     
     @FindBy(xpath = "//*[@id=\"confirm-modal\"]/div/div/div[3]/div/button[1]")
     WebElement btnDeleteConfirm;
-    public AkautingCostumersPage btnDeleteConfirm() {
+    public AkautingHomePage btnDeleteConfirm() {
         btnDeleteConfirm.click();
-        return new AkautingCostumersPage(driver);
+        return new AkautingHomePage(driver);
     }
     
     public String getTitle(){

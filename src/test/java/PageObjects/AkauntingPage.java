@@ -14,16 +14,36 @@ public class AkauntingPage extends AkautingBasePage{
     
     AkautingMenu menu;
     
+    @FindBy(xpath = "/html/body/div/div/section[2]/div[1]/section/div[4]/div/table/tbody/tr[2]/td[1]/small")
+    WebElement verificarSku;
+    
+    @FindBy(xpath = "/html/body/div/div/section[2]/div[2]/section/div[4]/div/table/tbody/tr[2]/td[1]/text()")
+    WebElement produto;
+    
+    @FindBy(xpath = "/html/body/div/div/section[2]/div[2]/section/div[4]/div/table/tbody/tr[2]/td[4]")
+    WebElement valor;
+    
     public AkauntingPage(WebDriver driver) {
         super(driver);
-        menu = new AkautingMenu(driver);
     }
      
     public AkautingMenu getMenu() {
-        return menu;
+        return new AkautingMenu(driver);
     }
     
     public String getTitle() {
         return dashboard.getText();
     }  
+    
+    public String setProduto() {
+        return produto.getText();
+    }
+    
+    public String setVerificarSku() {
+        return verificarSku.getText();
+    }
+    
+    public String setValor() {
+        return valor.getText();
+    }
 }

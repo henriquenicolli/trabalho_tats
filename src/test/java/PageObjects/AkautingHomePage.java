@@ -9,6 +9,5 @@ import org.openqa.selenium.WebDriver;
 public class AkautingHomePage extends AkauntingPage{
      public AkautingHomePage(WebDriver driver) {
         super(driver);
-        driver.get("http://10.0.0.111/");
     }
 }

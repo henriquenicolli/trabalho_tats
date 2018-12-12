@@ -1,8 +1,10 @@
 package Test;
 
+import PageObjects.AkautingHomePage;
 import PageObjects.AkautingInvoicesPage;
 import PageObjects.AkautingLogin;
 import PageObjects.AkautingMenu;
+import PageObjects.AkautingRevenuesPage;
 import PageObjects.Setup;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -17,8 +19,13 @@ import org.openqa.selenium.WebDriver;
  *
  * @author Henrique
  */
-public class DecimoTest {
+public class Caso10Test {
     private WebDriver driver;
+    AkautingLogin login;
+    AkautingHomePage homePage;
+    AkautingMenu menu;
+    AkautingRevenuesPage revenues;
+    AkautingInvoicesPage invoices;
 
     @BeforeClass
     public static void beforeClass() {
@@ -28,6 +35,7 @@ public class DecimoTest {
     @Before
     public void before() {
         driver = Setup.setup();
+        login = new AkautingLogin(driver);
     }
 
     @After
@@ -37,16 +45,23 @@ public class DecimoTest {
 
     @Test
     public void caseTest10() {
-        AkautingLogin login = new AkautingLogin(driver);
-        login.setEmail("teste@teste.com").setSenha("utfpr").Logar();
-        assertEquals("Dashboard - UTFPR", login.getTitle());
+        menu = login
+            .setEmail("teste@teste.com")
+            .setSenha("utfpr")
+            .Logar1();
         
-        AkautingMenu menu = new AkautingMenu(driver);
-        menu.btnIncomes().btnInvoices();
-        assertEquals("Invoices - UTFPR", menu.getTitle());
+        invoices = menu
+            .btnIncomes()
+            .btnInvoices();
         
-        AkautingInvoicesPage invoices = new AkautingInvoicesPage(driver);
-        invoices.btnAdd().setCustomer("Teste").setCategory("Sales").btnDate().setDate("2018-12-31").btnSave();
-        assertEquals("Invoices - UTFPR", invoices.getTitle());
+        homePage = invoices
+            .btnAdd()
+            .setCustomer("Teste")
+            .setCategory("Sales")
+            .btnDate()
+            .setDate("2018-12-31")
+            .btnSave1();
+        
+        assertEquals("Invoices - UTFPR", homePage.getTitle());
     }
 }

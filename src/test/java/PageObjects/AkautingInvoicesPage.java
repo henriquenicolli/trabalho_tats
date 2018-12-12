@@ -73,6 +73,11 @@ public class AkautingInvoicesPage extends AkauntingPage{
         return new AkautingInvoicesPage(driver);
     }
     
+    public AkautingHomePage btnSave1() {
+        btnSave.click();
+        return new AkautingHomePage(driver);
+    }
+    
     @FindBy(xpath = "//*[@id=\"tbl-customers\"]/tbody/tr[1]/td[5]/div/button")
     WebElement btnActions;
     public AkautingInvoicesPage btnActions() {

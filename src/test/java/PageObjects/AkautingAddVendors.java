@@ -101,9 +101,9 @@ public class AkautingAddVendors extends AkautingBasePage{
         return new AkautingAddVendors(driver);
     }
     
-    public AkautingAddVendors clickSaveButton() {
+    public AkautingHomePage clickSaveButton() {
         save.click();
-        return new AkautingAddVendors(driver);
+        return new AkautingHomePage(driver);
     }
     
     public String setMessage() {

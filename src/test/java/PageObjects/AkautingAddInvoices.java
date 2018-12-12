@@ -64,15 +64,6 @@ public class AkautingAddInvoices extends AkautingBasePage{
     @FindBy(xpath = "/html/body/div[1]/div/section[2]/div/form/div[2]/div/div/button")
     WebElement save;
     
-    @FindBy(xpath = "/html/body/div/div/section[2]/div[1]/section/div[4]/div/table/tbody/tr[2]/td[1]/small")
-    WebElement verificarSku;
-    
-    @FindBy(xpath = "/html/body/div/div/section[2]/div[2]/section/div[4]/div/table/tbody/tr[2]/td[1]/text()")
-    WebElement produto;
-    
-    @FindBy(xpath = "/html/body/div/div/section[2]/div[2]/section/div[4]/div/table/tbody/tr[2]/td[4]")
-    WebElement valor;
-    
     public AkautingAddInvoices(WebDriver driver) {
         super(driver);
     }
@@ -124,10 +115,10 @@ public class AkautingAddInvoices extends AkautingBasePage{
      }
     
     
-    public AkautingAddInvoices setOrderNumber(String number) {
+    public AkautingHomePage setOrderNumber(String number) {
         orderNumber.clear();
         orderNumber.sendKeys(number);
-        return this;
+        return new AkautingHomePage(driver);
     }
     
     public AkautingAddInvoices setItemsName(String nome) {
@@ -174,20 +165,8 @@ public class AkautingAddInvoices extends AkautingBasePage{
         return new AkautingAddInvoices(driver);
     }
     
-    public AkautingAddInvoices clickSave() {
+    public AkautingHomePage clickSave() {
         save.click();
-        return new AkautingAddInvoices(driver);
-    }
-    
-    public String setProduto() {
-        return produto.getText();
-    }
-    
-    public String setVerificarSku() {
-        return verificarSku.getText();
-    }
-    
-    public String setValor() {
-        return valor.getText();
+        return new AkautingHomePage(driver);
     }
 }

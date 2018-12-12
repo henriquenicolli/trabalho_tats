@@ -39,14 +39,14 @@ public class AkautingRevenuesPage extends AkautingBasePage {
     WebElement btnAdd;
     public AkautingRevenuesPage btnAdd() {
         btnAdd.click();
-        return new AkautingRevenuesPage(driver);
+        return this;
     }
     
     @FindBy(xpath = "/html/body/div/div/section[2]/div/form/div[2]/div/div/button")
     WebElement btnOk;
-    public AkautingRevenuesPage btnOk() {
+    public AkautingHomePage btnOk() {
         btnOk.click();
-        return new AkautingRevenuesPage(driver);
+        return new AkautingHomePage(driver);
     }
     
     @FindBy(xpath = "//*[@id=\"tbl-revenues\"]/tbody/tr/td[6]/div/button")

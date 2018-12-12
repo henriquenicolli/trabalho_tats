@@ -1,6 +1,7 @@
 package Test;
 
 import PageObjects.AkautingCostumersPage;
+import PageObjects.AkautingHomePage;
 import PageObjects.AkautingLogin;
 import PageObjects.AkautingMenu;
 import PageObjects.AkautingRevenuesPage;
@@ -18,9 +19,13 @@ import org.openqa.selenium.WebDriver;
  *
  * @author Henriqeu
  */
-public class QuartoTest {
+public class Caso04Test {
     private WebDriver driver;
-
+    AkautingLogin login;
+    AkautingHomePage homePage;
+    AkautingMenu menu;
+    AkautingCostumersPage costumers;
+    
     @BeforeClass
     public static void beforeClass() {
         WebDriverManager.chromedriver().setup();
@@ -29,6 +34,7 @@ public class QuartoTest {
     @Before
     public void before() {
         driver = Setup.setup();
+        login = new AkautingLogin(driver);
     }
 
     @After
@@ -38,16 +44,20 @@ public class QuartoTest {
 
     @Test
     public void caseTest04() {
-        AkautingLogin login = new AkautingLogin(driver);
-        login.setEmail("teste@teste.com").setSenha("utfpr").Logar();
-        assertEquals("Dashboard - UTFPR", login.getTitle());
+        menu = login
+            .setEmail("teste@teste.com")
+            .setSenha("utfpr")
+            .Logar1();
+
+        costumers = menu
+            .btnIncomes()
+            .btnCustomers();
         
-        AkautingMenu menu = new AkautingMenu(driver);
-        menu.btnIncomes().btnCustomers();
-        assertEquals("Customers - UTFPR", menu.getTitle());
+        homePage = costumers
+            .btnAdd()
+            .setName("Teste")
+            .btnSave();
         
-        AkautingCostumersPage costumers = new AkautingCostumersPage(driver);
-        costumers.btnAdd().setName("Teste").btnSave();
         assertEquals("Customers - UTFPR", costumers.getTitle());
     }
 }
